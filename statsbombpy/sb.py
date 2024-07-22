@@ -4,9 +4,9 @@ from typing import Union
 
 import pandas as pd
 
-from statsbombpy import api_client, public
-from statsbombpy.config import DEFAULT_CREDS, MAX_CONCURRENCY
-from statsbombpy.helpers import (filter_and_group_events,
+from sbfork.statsbombpy import api_client, public
+from sbfork.statsbombpy.config import DEFAULT_CREDS, MAX_CONCURRENCY
+from sbfork.statsbombpy.helpers import (filter_and_group_events,
                                  merge_events_and_frames, reduce_events)
 
 
