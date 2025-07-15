@@ -1,7 +1,7 @@
 import requests as req
 
-import statsbombpy.entities as ents
-from statsbombpy.config import OPEN_DATA_PATHS
+import sbfork.statsbombpy.entities as ents
+from sbfork.statsbombpy.config import OPEN_DATA_PATHS
 
 
 def get_response(path):
