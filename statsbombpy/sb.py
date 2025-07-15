@@ -4,9 +4,15 @@ from typing import Union
 
 import pandas as pd
 
+<<<<<<< HEAD
 from sbfork.statsbombpy import api_client, public
 from sbfork.statsbombpy.config import DEFAULT_CREDS, MAX_CONCURRENCY
 from sbfork.statsbombpy.helpers import (filter_and_group_events,
+=======
+from statsbombpy.statsbombpy import api_client, public
+from statsbombpy.statsbombpy.config import DEFAULT_CREDS, MAX_CONCURRENCY
+from statsbombpy.statsbombpy.helpers import (filter_and_group_events,
+>>>>>>> 04491a4c5c17eae2dd5371663f8880595eb450d6
                                  merge_events_and_frames, reduce_events)
 
 
@@ -20,7 +26,6 @@ def competitions(fmt="dataframe", creds: dict = DEFAULT_CREDS):
             competitions = competitions.values()
         competitions = pd.DataFrame(competitions)
     return competitions
-
 
 def matches(
     competition_id: int, season_id: int, fmt="dataframe", creds: dict = DEFAULT_CREDS
@@ -68,7 +73,6 @@ def matches(
             matches[k] = metadata.apply(lambda x: x.get(k))
     return matches
 
-
 def lineups(match_id, fmt="dataframe", creds: dict = DEFAULT_CREDS):
     if api_client.has_auth(creds) is True:
         lineups = api_client.lineups(match_id, creds=creds)
@@ -91,7 +95,6 @@ def lineups(match_id, fmt="dataframe", creds: dict = DEFAULT_CREDS):
 
         lineups = lineups_
     return lineups
-
 
 def events(
     match_id: int,
@@ -121,7 +124,6 @@ def events(
         if split is False:
             events = pd.concat([*events.values()], axis=0, ignore_index=True, sort=True)
     return events
-
 
 def competition_events(
     country: str,
@@ -161,7 +163,6 @@ def competition_events(
             [*competition_events.values()], axis=0, ignore_index=True, sort=True
         )
     return competition_events
-
 
 def _360_frames(
     match_id: int,

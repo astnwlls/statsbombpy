@@ -1,4 +1,5 @@
 import warnings
+<<<<<<< HEAD
 # from tempfile import mkdtemp
 
 import requests as req
@@ -8,11 +9,19 @@ import sbfork.statsbombpy.entities as ents
 from sbfork.statsbombpy.config import CACHED_CALLS_SECS, HOSTNAME, VERSIONS
 
 # install_cache(mkdtemp(), backend="sqlite", expire_after=CACHED_CALLS_SECS)
+=======
 
+import requests as req
+
+import statsbombpy.statsbombpy.entities as ents
+from statsbombpy.statsbombpy.config import HOSTNAME, VERSIONS
+>>>>>>> 04491a4c5c17eae2dd5371663f8880595eb450d6
+
+# from requests_cache import CachedSession
+# session = CachedSession('dags/.cache/sb', backend="sqlite", expire_after=360)
 
 class NoAuthWarning(UserWarning):
     """Warning raised when no user credentials are provided."""
-
     pass
 
 
@@ -23,7 +32,6 @@ def has_auth(creds):
         )
         return False
     return True
-
 
 def get_resource(url: str, creds: dict) -> list:
     auth = req.auth.HTTPBasicAuth(creds["user"], creds["passwd"])
